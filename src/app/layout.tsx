@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className="dark:bg-zinc-950 w-[1408px] mx-auto">
+      <body className="bg-zinc-950 w-[1408px] mx-auto">
         <DefaultLayout>{children}</DefaultLayout>
       </body>
     </html>

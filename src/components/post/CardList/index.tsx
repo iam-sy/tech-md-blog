@@ -50,13 +50,13 @@ function CardList({ list }: CardListProps) {
         </div>
       );
     },
-    [list],
+    [list]
   );
 
   const cache = useMemo(() => {
     return new CellMeasurerCache({
       fixedWidth: true,
-      defaultHeight: 348,
+      defaultHeight: 358,
     });
   }, []);
 

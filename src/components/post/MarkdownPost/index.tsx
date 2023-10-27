@@ -3,7 +3,7 @@
 import ReactMarkdown from "react-markdown";
 const SyntaxHighlighter = dynamic(
   () => import("react-syntax-highlighter/dist/esm/prism-async"),
-  { ssr: true },
+  { ssr: true }
 );
 import remarkGfm from "remark-gfm";
 import vscDarkPlus from "react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus";
@@ -34,7 +34,7 @@ export default function MarkDownPost({ post }: MarkdownPostProps) {
             <Image
               src={image.src || ""}
               alt={image.alt || ""}
-              width={500}
+              width={768}
               height={300}
             />
           ),
