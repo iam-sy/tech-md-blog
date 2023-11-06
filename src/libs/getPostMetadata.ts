@@ -25,7 +25,7 @@ const getPostMetadata = (): CardProps[] => {
       image: matterResult.data.image,
       update: getUpdateTime(file.updateTime),
       content: cutByteLength(matterResult.content, 140),
-      tag: matterResult.data.tags.split(","),
+      tag: matterResult.data.tags?.split(","),
       slug: file.filename.replace(".md", ""),
     };
   });

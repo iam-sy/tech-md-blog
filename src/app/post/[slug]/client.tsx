@@ -1,16 +1,15 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import React, { createElement, useEffect, useState } from "react";
-const PostMenus = dynamic(() => import("@/components/post/PostMenus"));
+
 import MarkDownPost from "@/components/post/MarkdownPost";
 import Link from "next/link";
-import type { PostClientProps } from "@/types/component/post";
-import type { Menu } from "@/types/component/post";
+import type { Menu, PostClientProps } from "@/types/component/post";
 import { parseHeadings } from "@/libs/utils";
 import { renderToStaticMarkup } from "react-dom/server";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import PostMenus from "@/components/post/PostMenus";
 
 function PostClient({ tags, title, content, update }: PostClientProps) {
   const tagList = tags?.split(",");

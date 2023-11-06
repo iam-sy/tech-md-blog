@@ -3,6 +3,7 @@ import getPostMetadata from "@/libs/getPostMetadata";
 import { NextAppDirPageProps } from "@/types/global";
 import SearchCardList from "@/components/search/SearchCardList";
 import { CardProps } from "@/types/component/post";
+import DefaultLayout from "@/components/layout/DefaultLayout";
 
 export const revalidate = 0;
 
@@ -24,7 +25,11 @@ function SearchPage({ searchParams }: NextAppDirPageProps) {
     postMetadata = postMetadata?.filter((meta) => meta.tag.includes(tag));
   }
 
-  return <SearchCardList keyword={keyword} tag={tag} list={postMetadata} />;
+  return (
+    <DefaultLayout>
+      <SearchCardList keyword={keyword} tag={tag} list={postMetadata} />
+    </DefaultLayout>
+  );
 }
 
 export default SearchPage;

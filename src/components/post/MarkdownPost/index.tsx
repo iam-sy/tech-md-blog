@@ -1,17 +1,15 @@
 "use client";
 
 import ReactMarkdown from "react-markdown";
-const SyntaxHighlighter = dynamic(
-  () => import("react-syntax-highlighter/dist/esm/prism-async"),
-  { ssr: true }
-);
+
 import remarkGfm from "remark-gfm";
+import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism-async-light";
 import vscDarkPlus from "react-syntax-highlighter/dist/cjs/styles/prism/vsc-dark-plus";
 import Image from "next/image";
 import type { MarkdownPostProps } from "@/types/component/post";
-import dynamic from "next/dynamic";
+import { memo } from "react";
 
-export default function MarkDownPost({ post }: MarkdownPostProps) {
+function MarkDownPost({ post }: MarkdownPostProps) {
   return (
     <div className="relative">
       <ReactMarkdown
@@ -34,7 +32,7 @@ export default function MarkDownPost({ post }: MarkdownPostProps) {
             <Image
               src={image.src || ""}
               alt={image.alt || ""}
-              width={768}
+              width={500}
               height={300}
             />
           ),
@@ -51,3 +49,4 @@ export default function MarkDownPost({ post }: MarkdownPostProps) {
     </div>
   );
 }
+export default memo(MarkDownPost);

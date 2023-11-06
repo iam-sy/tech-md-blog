@@ -4,6 +4,7 @@ import getPostMetadata from "@/libs/getPostMetadata";
 import path from "path";
 import React from "react";
 import PostClient from "@/app/post/[slug]/client";
+import DefaultLayout from "@/components/layout/DefaultLayout";
 
 const getPostContent = (slug: string) => {
   const folder = path.resolve("src/contents");
@@ -24,12 +25,14 @@ const PostPage = (props: any) => {
   const slug = decodeURIComponent(props.params.slug);
   const post = getPostContent(slug);
   return (
-    <PostClient
-      title={post.data.title}
-      update={post.data.update}
-      tags={post.data.tags}
-      content={post.content}
-    />
+    <DefaultLayout>
+      <PostClient
+        title={post.data.title}
+        update={post.data.update}
+        tags={post.data.tags}
+        content={post.content}
+      />
+    </DefaultLayout>
   );
 };
 
